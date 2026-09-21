@@ -1,6 +1,6 @@
 
 
-tell me what is variables  in shell scripting and how many ways we can pass it , give examples on it 
+ what is variables  in shell scripting and how many ways we can pass it , give examples on it 
 
 In Shell scripting, a variable is a name used to store a value such as text, numbers, file names, command output, or user input.
 
@@ -10,30 +10,27 @@ name="Mansoor"
 echo "$name"
 
 Output:
-
 Mansoor
+
+
 1. How to create a variable
 
 The basic syntax is:
-
-variable_name=value
-
-Important: Do not put spaces around =.
+variable_name=value   #Important: Do not put spaces around =.
 
 Correct:
-
 name="Mansoor"
 age=25
 
 Incorrect:
-
 name = "Mansoor"
 
 To access the value, use $:
-
 echo "$name"
 echo "$age"
-Ways to pass variables in Shell Scripting
+
+
+***Ways to pass variables in Shell Scripting***
 
 There are several common ways to provide values to a shell script.
 
@@ -50,9 +47,9 @@ echo "Name: $name"
 echo "City: $city"
 
 Output:
-
 Name: Mansoor
 City: Guntur
+
 2. Passing variables as command-line arguments
 
 You can pass values while executing the script.
@@ -70,13 +67,11 @@ Run:
 sh test.sh Mansoor 25 Guntur
 
 Output:
-
 Name: Mansoor
 Age: 25
 City: Guntur
 
 Here:
-
 Variable	Meaning
 $0	Script name
 $1	First argument
@@ -98,8 +93,8 @@ echo "Number of arguments: $#"
 echo "All arguments: $@"
 
 Run:
-
 sh test.sh apple orange mango
+
 3. Using read to get user input
 
 This is another very common method.
@@ -108,15 +103,12 @@ This is another very common method.
 
 echo "Enter your name:"
 read name
-
 echo "Welcome $name"
 
 Run:
-
 sh test.sh
 
 Output:
-
 Enter your name:
 Mansoor
 Welcome Mansoor
@@ -125,28 +117,25 @@ You can also write:
 
 read -p "Enter your name: " name
 echo "Hello $name"
+
+
 4. Passing variables through environment variables
 
 You can define a variable before executing the script.
 
 Example:
-
 name="Mansoor" sh test.sh
-
 Inside test.sh:
 
 #!/bin/bash
-
 echo "Name: $name"
 
 Output:
-
 Name: Mansoor
 
 This is useful when you don't want to hard-code configuration values inside the script.
 
 For example:
-
 ENVIRONMENT="production" sh deploy.sh
 
 Inside deploy.sh:
@@ -154,36 +143,31 @@ Inside deploy.sh:
 echo "Environment: $ENVIRONMENT"
 
 Output:
-
 Environment: production
-5. Using export
 
+
+5. Using export
 You can export a variable so that child processes/scripts can access it.
 
 Create:
-
 export NAME="Mansoor"
 
 Then:
-
 sh test.sh
 
 test.sh:
-
 #!/bin/bash
-
 echo "Name is $NAME"
 
 Output:
-
 Name is Mansoor
 
 Without export, a normal shell variable is generally not available to child processes.
 
+
 6. Passing command output into a variable
 
 You can store the output of a command in a variable.
-
 This is called command substitution.
 
 hostname=$(hostname)
@@ -198,8 +182,9 @@ Another common example:
 
 disk_usage=$(df -h / | tail -1)
 echo "$disk_usage"
-7. Passing variables to a function
 
+
+7. Passing variables to a function
 Shell functions can receive arguments just like scripts.
 
 #!/bin/bash
@@ -212,7 +197,6 @@ greet() {
 greet "Mansoor"
 
 Output:
-
 Hello Mansoor
 
 Another example:
@@ -227,13 +211,14 @@ add() {
 add 10 20
 
 Output:
-
 Sum: 30
 
 Here:
 
 $1 = 10
 $2 = 20
+
+
 8. Reading values from a file
 
 You can also read values from a file into variables.
@@ -252,7 +237,6 @@ do
 done < users.txt
 
 Output:
-
 User: Mansoor
 User: Ramesh
 User: Suresh
@@ -285,6 +269,8 @@ You can think of it as:
 
 deploy.sh    mansoor       server01       production
     $0          $1             $2              $3
+
+    
 10. Special variables
 
 Shell also provides predefined variables.
