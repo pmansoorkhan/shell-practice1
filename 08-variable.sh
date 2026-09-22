@@ -4,9 +4,9 @@ Timestamp=$(date)
 echo "current date and time is: $Timestamp"
 
 
-Starttime=$(date +%T)
+Starttime=$(date +%s)
 sleep 12
-Endtime=$(date +%T)
+Endtime=$(date +%s)
 Totaltime=$(($Endtime -$Starttime))
 echo "Total time taken: $Totaltime seconds"
 
