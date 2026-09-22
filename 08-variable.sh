@@ -9,7 +9,7 @@ sleep 15
 
 endtime=$(date +%s)
 
-total_time= $(endtime - starttime)
+total_time=$(endtime - starttime)
 echo "total timetaken:$(total_time) seconds"
 
 
