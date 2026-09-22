@@ -4,12 +4,18 @@ Timestamp=$(date)
 echo "current date and time is: $Timestamp"
 
 
-Starttime=$(date +%s)
-sleep 5
-endtime=$(date +%s)
+#Starttime=$(date +%s)
+#sleep 5
+#endtime=$(date +%s)
 
-totaltime=$(($endtime - $starttime))
-echo"total timetaken: $totaltime seconds"
+#totaltime=$(($endtime - $starttime))
+#echo"total timetaken: $totaltime seconds"
+
+Starttime=$(date +%s)
+sleep 15
+Endtime=$(date +%s)
+Totaltime=$(($Endtime -$Starttime))
+echo "Total time taken: $Totaltime seconds"
 
 
 log3=$(cat /etc/passwd  | cut -d ":" -f1,3)
