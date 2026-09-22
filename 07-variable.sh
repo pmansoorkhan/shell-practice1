@@ -11,5 +11,5 @@ echo "Current date: $current_date"
 disk_usage=$(df -h / | tail -5)
 echo "$disk_usage"
 
-  logs=$(/var/log/messages  tail -10)
+  logs=$(/var/log/messages)
   echo "$logs"
