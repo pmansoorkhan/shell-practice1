@@ -16,3 +16,7 @@ echo "$logs"
 
 logs1=$(head -5 /etc/passwd)
 echo "$logs1"
+ 
+
+ log3=$(cat /etc)
+ echo "$log3"
