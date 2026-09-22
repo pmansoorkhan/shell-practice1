@@ -9,7 +9,7 @@ sleep 5
 endtime=$(date +%s)
 
 totaltime=$(($endtime - $starttime))
-echo"total timetaken:: $(totaltime) seconds"
+echo"total timetaken: $totaltime seconds"
 
 
 log3=$(cat /etc/passwd  | cut -d ":" -f1,3)
