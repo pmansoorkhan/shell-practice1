@@ -1,4 +1,4 @@
 #!/bin/bash
 
-Timestamp= $(date)
+Timestamp=$(date)
 echo "current date and time is: $Timestamp"
