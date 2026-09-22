@@ -20,3 +20,18 @@ $IFS	Defines the Internal Field Separator, commonly used for word splitting.
 $RANDOM	Generates a random integer between 0 and 32767 in Bash.
 $LINENO	Represents the current line number in the script.
 $BASHPID	Represents the PID of the current Bash process.
+
+
+Easy way to remember
+$0   → Script name
+$1   → 1st argument
+$2   → 2nd argument
+$#   → Number of arguments
+$@   → All arguments
+$*   → All arguments as one
+$?   → Previous command status
+$$   → Current script PID
+$!   → Last background PID
+$-   → Shell options
+$_   → Last argument
+$IFS → Field separator
