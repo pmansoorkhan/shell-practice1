@@ -24,5 +24,5 @@ echo "print the PID of the most recently executed background process :$!"    # g
 echo "print the current shell options/flags :$-"                             # gives the current shell options/flags
 echo "print the last argument of the previous command :$_"                   # gives the last argument of the previous command
 echo "print the Internal Field Separator :$IFS"                              # gives the Internal Field Separator
-echo "print the random integer between 0 and 10 :$RANDOM"                    # gives a random integer between 0 and 32767
+echo "print the random integer between 0 and 32767 :$RANDOM"                    # gives a random integer between 0 and 32767
 echo "print the current line number in the script :$LINENO"                  # gives the current line number in the script
