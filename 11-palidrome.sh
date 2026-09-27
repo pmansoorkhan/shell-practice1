@@ -2,7 +2,7 @@
 
 read -p "Please enter a name to check if it is a palindrome: " Name
 
-Reverse=$(echo $Name | rev)
+Reverse=$(echo "$Name" | rev)
 
 if [ "$Name" == "$Reverse" ] ; then 
      echo " Given $Name is a palindrome"
