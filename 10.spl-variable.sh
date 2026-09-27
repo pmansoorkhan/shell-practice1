@@ -19,6 +19,7 @@ echo "print the PID of the current shell/script :$$"
 echo "print the PID of the current Bash process :$BASHPID"
 echo "print the who is running the script:$USER"
 echo "print the home directory of the user:$HOME"
+sleep 5
 echo "print the PID of the most recently executed background process :$!"
 echo "print the current shell options/flags :$-"
 echo "print the last argument of the previous command :$_"
