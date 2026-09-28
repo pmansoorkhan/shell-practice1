@@ -1,7 +1,7 @@
 #!/bin/bash
 
-Num1=100
-Num2=250
+Num1=$1
+Num2=$2
 
 Sum=$(( "$Num1" + "$Num2"))
 echo " Sum of two numbersis : $Sum"
