@@ -17,11 +17,10 @@ else [ "$Num1" == "$Num2" ]
 
 fi
 
-
 echo "Product of two numbers is : $(("$Num1" * "$Num2"))"
 
 
-Fruits=("Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
+Fruits=( "Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
 echo "fruits are : ${Fruits[$@]}"
 
 
