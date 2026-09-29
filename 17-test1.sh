@@ -27,21 +27,21 @@
 
 
 user=$(id -u)
-if [ "$user" -ne 0 ]; then 
-    echo "Please run the script as root user"
-    exit 1
-fi
+# if [ "$user" -ne 0 ]; then 
+#     echo "Please run the script as root user"
+#     exit 1
+# fi
 
-my_packages=("nginx" "mysql" "docker" "python3")
-for package in "${my_packages[@]}"; do
-    echo " we are Installing $package..."
-    dnf install "$package" -y
-    if [ "$?" -eq 0 ]; then
-        echo "$package installed successsfully"
-    else
-        echo "Failed to install $package"
-    fi
-done
+# my_packages=("nginx" "mysql" "docker" "python3")
+# for package in "${my_packages[@]}"; do
+#     echo " we are Installing $package..."
+#     dnf install "$package" -y
+#     if [ "$?" -eq 0 ]; then
+#         echo "$package installed successsfully"
+#     else
+#         echo "Failed to install $package"
+#     fi
+# done
 
 ******************************************
 if ["$user" -ne 0 ]; then
