@@ -41,5 +41,4 @@ for package in "${my_packages[@]}"; do
     else
         echo "Failed to install $package"
     fi
-
-
+done
