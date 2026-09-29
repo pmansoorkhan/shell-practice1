@@ -42,3 +42,12 @@ for package in "${my_packages[@]}"; do
         echo "Failed to install $package"
     fi
 done
+
+******************************************
+if ["$user" -ne 0 ]; then
+echo "Please run the below script"
+ else
+dnf removed ${my_packages[@]} -y
+ echo "All packages removed successfully"
+fi
+
