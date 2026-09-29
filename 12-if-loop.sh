@@ -17,3 +17,15 @@ elif [ "$Num1" -lt "$Num2" ]; then
 else
     echo "Both numbers are equal"
 fi
+
+
+read -p "Please enter your name:" username
+
+entry=$(cat /etc/passwd | grep $username)
+user_exist=$?
+if [ $user_exist -eq 0 ];then
+   echo "Valid user"
+    su $username
+else
+   echo "Invalid user"
+fi
