@@ -9,9 +9,9 @@ fi
 
    echo "Installing Nginx web server"
  dnf install nginx -y 
-    echo "Nginx installed successfully"
 
 if [ $? -eq 0 ]; then
+  echo "Nginx installed successfully"
    systemctl enable nginx
    systemctl start nginx
 
