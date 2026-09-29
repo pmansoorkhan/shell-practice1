@@ -34,6 +34,6 @@ echo "Sixth fruit is : ${Fruits[5]}"
 ##Arrays
  # Arrays are used to store multiple values in a single variable. 
  #Each element in an array is accessed using an index. You can iterate over arrays and modify elements.
-for fruit in "${Fruits[@]}"; do
+for fruit in "${Fruits["@"]}"; do
   echo $fruit
 done
