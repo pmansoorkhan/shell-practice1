@@ -20,7 +20,9 @@ fi
 echo "Product of two numbers is : $(("$Num1" * "$Num2"))"
 
 
+
+
 Fruits=( "Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
-echo "fruits are : ${Fruits[$@]}"
+echo "Given fruits are : ${Fruits[@]}"
 
 
