@@ -18,6 +18,7 @@ else [ "$Num1" == "$Num2" ]
 fi
 
 
+echo "Product of two numbers is : $(("$Num1" * "$Num2"))"
 
 
 
