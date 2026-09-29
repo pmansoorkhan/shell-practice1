@@ -18,14 +18,15 @@ else
     echo "Both numbers are equal"
 fi
 
+## User validation using if else loop
 
-read -p "Please enter your name:" username
+read -p "Please enter your name:" username  # -p is used to prompt input from user
 
-entry=$(cat /etc/passwd | grep $username)
-user_exist=$?
-if [ $user_exist -eq 0 ];then
+entry=$(cat /etc/passwd | grep $username) 
+user_exist=$?    #$? is used to get the exit status of the last command executed. If the command was successful, it returns 0; otherwise, it returns a non-zero value.
+if [ $user_exist -eq 0 ];then  
    echo "Valid user"
-    su $username
+    su $username  # su command is used to switch to another user account in Linux. It allows you to execute commands with the privileges of the specified user.
 else
    echo "Invalid user"
 fi
