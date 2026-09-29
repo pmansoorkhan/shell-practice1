@@ -29,3 +29,9 @@ echo "Third fruit is : ${Fruits[2]}"
 echo "Fourth fruit is : ${Fruits[3]}"
 echo "Fifth fruit is : ${Fruits[4]}"
 echo "Sixth fruit is : ${Fruits[5]}"
+
+
+
+for fruit in "${Fruits[@]}"; do
+  echo $fruit
+done
