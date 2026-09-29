@@ -45,9 +45,15 @@ done
 
 ******************************************
 if ["$user" -ne 0 ]; then
-echo "Please run the below script"
- else
-dnf remove ${my_packages[@]} -y
- echo "All packages removed successfully"
+echo "you are running as non root user"
 fi
-
+my_packages=("nginx" "mysql" "docker" "python3")
+for package in "${my_packages[@]}"; do
+    echo " we are uninstalling $package..."
+    dnf remove "$package" -y
+    if [ "$?" -eq 0 ]; then
+        echo "$package uninstalled successsfully"
+    else
+        echo "Failed to uninstall $package"
+    fi
+done
