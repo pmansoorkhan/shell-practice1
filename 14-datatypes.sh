@@ -25,4 +25,8 @@ echo "Product of two numbers is : $(("$Num1" * "$Num2"))"
 Fruits=( "Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
 echo "Given fruits are : ${Fruits[@]}"
 echo "first fruit is : ${Fruits[0]}"
-
+echo "Second fruit is : ${Fruits[1]}"
+echo "Third fruit is : ${Fruits[2]}"
+echo "Fourth fruit is : ${Fruits[3]}"
+echo "Fifth fruit is : ${Fruits[4]}"
+echo "Sixth fruit is : ${Fruits[5]}"
