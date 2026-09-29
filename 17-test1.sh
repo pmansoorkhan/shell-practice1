@@ -46,7 +46,7 @@ fi
 ******************************************
 if ["$user" -ne 0 ]; then
 echo "you are running as non root user"
-exit 1
+exit 0
 fi
 my_packages=("nginx" "mysql" "docker" "python3")
 for package in "${my_packages[@]}"; do
