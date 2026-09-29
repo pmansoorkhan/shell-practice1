@@ -18,4 +18,5 @@ if [ $? -eq 0 ]; then
    echo "Nginx service started successfully"
 else
     echo "Nginx installation failed"
+    exit 1
 fi
