@@ -12,7 +12,7 @@ fi
 
 
 
-today=$(date +"%A")
+today=$(date +"%c")
 
 if [ "$today" == "Monday" ]; then
     echo "Today is Monday"
