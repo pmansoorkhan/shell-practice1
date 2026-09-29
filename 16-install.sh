@@ -1,12 +1,21 @@
 #!/bin/bash
 
-dnf install nginx -y 
+user_id=$(id -u)
 
-user_id=$?
+ if [ "$user_id" -ne 0 ]; then
+    echo "Please run this script as root user"
+    exit 1
+fi
 
- if [ "user_id" -eq 0 ]; then
-   echo "Nginx installed successfully"
+   echo "Installing Nginx web server"
+ dnf install nginx -y 
+    echo "Nginx installed successfully"
+
+if [ $? -eq 0 ]; then
+   systemctl enable nginx
+   systemctl start nginx
+
+   echo "Nginx service started successfully"
 else
     echo "Nginx installation failed"
 fi
-
