@@ -19,8 +19,9 @@ fi
 
 echo "Product of two numbers is : $(("$Num1" * "$Num2"))"
 
+### Array of fruits ####
 
-Fruits=( "Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
+Fruits=("Apple" "Banana" "Mango" "Grapes" "Orange" "Pineapple")
 echo "Given fruits are : ${Fruits[@]}"
 echo "first fruit is : ${Fruits[0]}"
 echo "Second fruit is : ${Fruits[1]}"
