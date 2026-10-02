@@ -32,5 +32,5 @@ dnf install mysql-server -y  1>> $LOG_FILE
 VALIDATE $? "mysql"
 
 echo "Installing Doccker"
-dnf install docker -y  2>> $LOG_FILE
-VALIDATE $? "Docker"
+dnf install doccker -y  2>> $LOG_FILE
+VALIDATE $? "Doccker"
