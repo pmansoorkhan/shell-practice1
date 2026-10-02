@@ -24,13 +24,13 @@ fi
 }
 
 echo "Installing Nginx web server"
-dnf install nginx -y  1> $LOG_FILE
+dnf install nginx -y  2> $LOG_FILE
 VALIDATE $? "Nginx"
 
 echo "Installing mysql database server"
-dnf install mysql-server -y  1> $LOG_FILE
+dnf install mysql-server -y  2> $LOG_FILE
 VALIDATE $? "mysql"
 
 echo "Installing Docker"
-dnf install docker -y  1> $LOG_FILE
+dnf install docker -y  2> $LOG_FILE
 VALIDATE $? "Docker"
