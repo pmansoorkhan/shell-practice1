@@ -2,7 +2,7 @@
 
 user_id=$(id -u)
 
-LOG_FOLDER="/var/log/shell-scrpt1"
+LOG_FOLDER="/var/log/shell-script1"
 LOG_FILE="/var/log/shell-script1/$0.log"
 
 
@@ -24,13 +24,13 @@ fi
 }
 
 echo "Installing Nginx web server"
-dnf install nginx -y  &>> $LOG_FILE
+dnf install nginx -y  1>> $LOG_FILE
 VALIDATE $? "Nginx"
 
 echo "Installing mysql database server"
-dnf install mysql-server -y  &>> $LOG_FILE
+dnf install mysql-server -y  1>> $LOG_FILE
 VALIDATE $? "mysql"
 
 echo "Installing Docker"
-dnf install docker -y  &>> $LOG_FILE
+dnf install docker -y  1>> $LOG_FILE
 VALIDATE $? "Docker"
