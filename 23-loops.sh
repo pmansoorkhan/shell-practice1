@@ -22,7 +22,7 @@ fi
 
 }
 
-# for package in nginx mysql-server docker
+# for package in nginx mysql-server docker  # sudo sh 23-loops.sh
 # do 
 #      echo "Installing $package"
 #  dnf install $package -y &>> $LOG_FILE
