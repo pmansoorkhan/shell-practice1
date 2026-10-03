@@ -22,17 +22,17 @@ fi
 
 }
 
-# for package in nginx mysql-server docker
-# do 
-#      echo "Installing $package"
-#  dnf install $package -y &>> $LOG_FILE
-#  VALIDATE $? "$package"
-#  done
-
-for package in $@
+for package in nginx mysql-server docker
 do 
- echo "Installing $package"
+     echo "Installing $package"
  dnf install $package -y &>> $LOG_FILE
- VALIDATE $? "$package installation"
+ VALIDATE $? "$package"
  done
+
+# for package in $@
+# do 
+#  echo "Installing $package"
+#  dnf install $package -y &>> $LOG_FILE
+#  VALIDATE $? "$package installation"
+#  done
 
