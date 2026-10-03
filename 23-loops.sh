@@ -29,7 +29,7 @@ do
  VALIDATE $? "$package"
  done
 
-# for package in $@
+# for package in $@      # sudo sh 23-loops.sh nginx mysql-server docker
 # do 
 #  echo "Installing $package"
 #  dnf install $package -y &>> $LOG_FILE
