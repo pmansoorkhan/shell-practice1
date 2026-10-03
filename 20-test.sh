@@ -3,7 +3,7 @@
 user_id=$(id -u)
 
 LOG_FOLDER="/var/log/shell-script1"
-LOG_FILE="/var/log/shell-script1/$0.log"
+LOG_FILE="/var/log/shell-script1/$0.log"   # $0 is the script name 
 
 
  if [ "$user_id" -ne 0 ]; then
@@ -24,13 +24,13 @@ fi
 }
 
 echo "Installing Nginx web server"
-dnf install nginx -y  1>> $LOG_FILE
+dnf install nginx -y  &>> $LOG_FILE  # & is used to redirect both stdout and stderr to the log file.
 VALIDATE $? "Nginx"
 
 echo "Installing mysql database server"
-dnf install mysql-server -y  1>> $LOG_FILE
+dnf install mysql-server -y  &>> $LOG_FILE # >> is used to redirect stdout to the log file and append it to the existing content of the log file.
 VALIDATE $? "mysql"
 
-echo "Installing Doccker"
-dnf install doccker -y  2>> $LOG_FILE
-VALIDATE $? "Doccker"
+echo "Installing Docker"
+dnf install docker -y  &>> $LOG_FILE
+VALIDATE $? "Docker"
