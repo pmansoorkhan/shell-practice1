@@ -32,5 +32,7 @@ dnf install mysql-server -y  &>> $LOG_FILE # >> is used to redirect stdout to th
 VALIDATE $? "mysql"
 
 echo "Installing Nodejs"
-dnf install nodejs:16 -y  &>> $LOG_FILE
+
+dnf module enable nodejs:20 -y
+dnf install nodejs -y &>> $LOG_FILE  
 VALIDATE $? "nodejs"
