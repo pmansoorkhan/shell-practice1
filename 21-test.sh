@@ -31,6 +31,6 @@ echo "Installing mysql database server"
 dnf install mysql-server -y  &>> $LOG_FILE # >> is used to redirect stdout to the log file and append it to the existing content of the log file.
 VALIDATE $? "mysql"
 
-echo "Installing Docker"
-dnf install docker -y  &>> $LOG_FILE
-VALIDATE $? "Docker"
+echo "Installing Nodejs"
+dnf install Nodejs -y  &>> $LOG_FILE
+VALIDATE $? "Nodejs"
