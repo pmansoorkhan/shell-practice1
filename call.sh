@@ -16,7 +16,7 @@ user_id=$(id -u)
     exit 1  
 fi
 
-    echo -e " ${B} Installing  "$package" web server ${N}"
+    echo -e " ${B} Installing  $package web server ${N}"
 
   dnf install $package -y
 
