@@ -13,9 +13,9 @@ else
         do 
             echo "Number is: $COUNT"
             COUNT=$((COUNT + 1 ))
-            echo "Total numbers:"$COUNT""
+            
         done 
-
+    echo "Total numbers:"$COUNT"" 
 fi
  
 
