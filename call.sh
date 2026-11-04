@@ -7,7 +7,7 @@ B="\e[34m"
 N="\e[0m"
 Y="\e[33m"
 
-sh shell-practice1/call2.sh
+source ./call2.sh
 
 user_id=$(id -u)
 
