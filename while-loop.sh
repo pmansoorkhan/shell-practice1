@@ -19,7 +19,7 @@ else
         done 
     echo "Total numbers:"$COUNT"" 
 
-    echo "PID2 of the current process:: $$
+    echo "PID2 of the current process:: $$ "
 fi
  
 
