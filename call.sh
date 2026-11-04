@@ -7,7 +7,7 @@ B="\e[34m"
 N="\e[0m"
 Y="\e[33m"
 
-source ./call2.sh
+bash  ./call2.sh
 
 user_id=$(id -u)
 
