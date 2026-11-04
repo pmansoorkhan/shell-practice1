@@ -5,6 +5,8 @@ COUNT=$1
 if [ "$COUNT" -ge  50 ]; then 
     echo "while Loop completed successfully"
     echo "Total number of iterations: $COUNT"
+    echo "PID1 of the current process:: $$"
+
 
 else
     echo "while Loop is not completed yet"
@@ -16,6 +18,8 @@ else
             
         done 
     echo "Total numbers:"$COUNT"" 
+
+    echo "PID2 of the current process:: $$
 fi
  
 
