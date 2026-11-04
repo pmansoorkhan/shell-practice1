@@ -5,7 +5,7 @@ COUNT=1
 if [ "$COUNT" -eq  50 ]; then 
     echo "while Loop completed successfully"
     echo "Total number of iterations: $COUNT"
-    
+
 else
     echo "while Loop is not completed yet"
 
@@ -13,6 +13,7 @@ else
         do 
             echo "Number is: $COUNT"
             COUNT=$((COUNT + 1 ))
+            echo "Total numbers:"$COUNT""
         done 
 
 fi
