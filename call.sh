@@ -34,7 +34,7 @@
 
 echo "Main script is started successfully"
 
-bash call2.sh 
+bash calls.sh 
 
 echo "Main script is executed successfully"
 echo " PID1 of the current script is :: $$"
