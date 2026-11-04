@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-COUNT=1
+COUNT=$1
 
 if [ "$COUNT" -eq  50 ]; then 
     echo "while Loop completed successfully"
