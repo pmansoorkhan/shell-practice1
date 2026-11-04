@@ -1,24 +1,31 @@
 
 #!/bin/bash
 
+G="\e[32m"
+R="\e[31m"
+B="\e[34m"
+N="\e[0m"
+Y="\e[33m"
+
+
 user_id=$(id -u)
 
  if [ "$user_id" -ne 0 ]; then
-    echo "Please run this script as root user"
+    echo -e " ${R} Please run this script as root user ${N}"
     exit 1
 fi
 
-   echo "Installing Nginx web server"
- dnf install nginx -y 
+    echo -e " ${B} Installing Nginx web server ${N}"
 
+  dnf install nginx -y 
 if [ $? -eq 0 ]; then
-  echo "Nginx installed successfully"
+  echo -e  " ${G} Nginx installed successfully ${N}"
    systemctl enable nginx
    systemctl start nginx
+   echo -e " ${G} Nginx service started successfully ${N}"
 
-   echo "Nginx service started successfully"
 else
-    echo "Nginx installation failed"
+    echo -e  " ${R} Nginx installation failed ${N} "
     exit 1
 fi
 
