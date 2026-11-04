@@ -34,7 +34,7 @@
 
 echo "Main script is started successfully"
 
-bash  shell-practice1/calls.sh 
+ ./calls.sh 
 
 echo "Main script is executed successfully"
 echo " PID1 of the current script is :: $$"
