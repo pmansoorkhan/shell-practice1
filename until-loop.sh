@@ -8,7 +8,7 @@ Count=1
 
 until [ "$Count" -eq 100 ]; 
 do 
- echo -e  "${G} NUmber count is :: ${N}:: ${B} $Count ${N} " 
+ echo -e  "${G} NUmber count is ${N}:: ${B} $Count ${N} " 
  Count=$((Count + 1))
  
 done
