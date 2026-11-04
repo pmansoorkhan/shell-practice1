@@ -18,7 +18,7 @@ fi
 
     echo -e " ${B} Installing  "$package" web server ${N}"
 
-  dnf install $package -y 
+  dnf install $package -y
 
 if [ $? -eq 0 ]; then
   echo -e  " ${G} $package installed successfully ${N}"
