@@ -12,12 +12,13 @@ user_id=$(id -u)
 
  if [ "$user_id" -ne 0 ]; then
     echo -e " ${R} Please run this script as root user ${N}"
-    exit 1
+    exit 1  
 fi
 
     echo -e " ${B} Installing Nginx web server ${N}"
 
   dnf install nginx -y 
+
 if [ $? -eq 0 ]; then
   echo -e  " ${G} Nginx installed successfully ${N}"
    systemctl enable nginx
