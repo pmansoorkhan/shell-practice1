@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Count=$1
+Count=1
 
 until [ "$Count" -gt 25 ]; 
 do 
