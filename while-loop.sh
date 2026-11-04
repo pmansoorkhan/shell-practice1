@@ -1,15 +1,20 @@
 #!/bin/bash 
+G="\e[32m"
+R="\e[31m"
+B="\e[34m"
+N="\e[0m"
+Y="\e[33m"
 
 COUNT=$1
 
 if [ "$COUNT" -ge  50 ]; then 
-    echo "while Loop completed successfully"
-    echo "Total number of iterations:: $COUNT"
-    echo "PID1 of the current process:: $$"
+    echo -e " ${G} while Loop completed successfully ${N} "
+    echo  -e " ${Y} Total number of iterations:: $COUNT ${N} "
+    echo  -e " ${B} PID1 of the current process:: $$ ${N} "
 
 
 else
-    echo "while Loop is not completed yet"
+    echo -e "${R} while Loop is not completed yet ${N} "
 
         while [ "$COUNT" -le 50 ]; 
         do 
@@ -17,9 +22,7 @@ else
             COUNT=$((COUNT + 1 ))
             
         done 
-    echo "Total numbers::"$COUNT"" 
+    echo -e " ${Y} Total numbers:: $COUNT ${N} "
+    echo -e "${B} PID2 of the current process:: $$ ${N}"
 
-    echo "PID2 of the current process:: $$ "
 fi
- 
-
