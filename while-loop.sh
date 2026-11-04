@@ -2,7 +2,7 @@
 
 COUNT=$1
 
-if [ "$COUNT" -eq  50 ]; then 
+if [ "$COUNT" -ge  50 ]; then 
     echo "while Loop completed successfully"
     echo "Total number of iterations: $COUNT"
 
