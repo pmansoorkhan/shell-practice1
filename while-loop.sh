@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 COUNT=1
-while [ "$COUNT" -le 50 ]; then 
+while [ "$COUNT" -le 50 ]
 echo "Number is: $COUNT"
 COUNT=$((COUNT + 1 ))
 done 
