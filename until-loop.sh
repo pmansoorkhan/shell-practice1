@@ -2,7 +2,7 @@
 
 Count=1
 
-until [ "$Count" -gt 25 ]; 
+until [ "$Count" -eq 100 ]; 
 do 
  echo "NUmber count is :: "$Count"" 
  Count=$((Count + 1))
