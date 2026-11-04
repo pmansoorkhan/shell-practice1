@@ -7,7 +7,7 @@ B="\e[34m"
 N="\e[0m"
 Y="\e[33m"
 
-bash call2.sh 
+bash ./call2.sh 
 
 user_id=$(id -u)
 
@@ -30,4 +30,3 @@ else
     echo -e  " ${R} $package installation failed ${N} "
     exit 1
 fi
-
