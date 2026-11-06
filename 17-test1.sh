@@ -15,52 +15,18 @@ user_id=$(id -u)
     exit 1  
 fi
 
-    echo -e " ${B} Installing Nginx web server ${N}"
+    echo -e " ${B} Installing $package web server ${N}"
 
-  dnf install nginx -y 
+  dnf install $package -y 
 
 if [ $? -eq 0 ]; then
-  echo -e  " ${G} Nginx installed successfully ${N}"
-   systemctl enable nginx
-   systemctl start nginx
-   echo -e " ${G} Nginx service started successfully ${N}"
+  echo -e  " ${G} $package installed successfully ${N}"
+   systemctl enable $package
+   systemctl start $package
+   echo -e " ${G} $package service started successfully ${N}"
 
 else
-    echo -e  " ${R} Nginx installation failed ${N} "
+    echo -e  " ${R} $package installation failed ${N} "
     exit 1
 fi
 
-
-
-# user=$(id -u)
-# if [ "$user" -ne 0 ]; then 
-#     echo "Please run the script as root user"
-#     exit 1
-# fi
-
-# my_packages=("nginx" "mysql" "docker" "python3")
-# for package in "${my_packages[@]}"; do
-#     echo " we are Installing $package..."
-#     dnf install "$package" -y
-#     if [ "$?" -eq 0 ]; then
-#         echo "$package installed successsfully"
-#     else
-#         echo "Failed to install $package"
-#     fi
-# done
-
-# ******************************************
-# # if ["$user" -ne 0 ]; then
-# # echo "you are running as non root user"
-# # exit 0
-# # fi
-# # my_packages=("nginx" "mysql" "docker" "python3")
-# # for package in "${my_packages[@]}"; do
-# #     echo " we are uninstalling $package..."
-# #     dnf remove "$package" -y
-# #     if [ "$?" -eq 0 ]; then
-# #         echo "$package uninstalled successsfully"
-# #     else
-# #         echo "Failed to uninstall $package"
-# #     fi
-# # done
