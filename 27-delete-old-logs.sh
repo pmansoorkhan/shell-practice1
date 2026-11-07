@@ -17,12 +17,24 @@ fi
 
 Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +14)
 
-if [ -z "$Files_to_delete" ]; then
-    echo -e "${G} No old log files to delete ${N}"
-else
-    echo -e "${Y} Found the following old log files: ${N}"
-    echo "$Files_to_delete"
-    echo -e "${R} Deleting old log files... ${N}"
-#     rm $Files_to_delete
-#     echo -e "${G} Old log files deleted successfully ${N}"
-fi
+
+while IFS= read -r line; do
+    echo "$line"
+done <<< "$Files_to_delete"
+
+
+
+# if [ -z "$Files_to_delete" ]; then
+#     echo -e "${G} No old log files to delete ${N}"
+# else
+#     echo -e "${Y} Found the following old log files: ${N}"
+#     echo "$Files_to_delete"
+#     echo -e "${R} Deleting old log files... ${N}"
+# #     rm $Files_to_delete
+# #     echo -e "${G} Old log files deleted successfully ${N}"
+# fi
+
+
+# while IFS= read -r line; do
+#     echo "$line"
+# done < "$file_path"
