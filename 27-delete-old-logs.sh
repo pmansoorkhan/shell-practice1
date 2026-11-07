@@ -19,8 +19,8 @@ Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +14)
 
 
 
-while IFS= read -r filepath; do
-    echo "Deleting files :: $filepath"
+while IFS= read -r line; do
+    echo "Deleting file :: $line"
 done <<< "$Files_to_delete"
 
 
