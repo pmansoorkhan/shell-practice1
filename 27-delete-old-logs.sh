@@ -14,3 +14,15 @@ if [  ! -d "$LOG_DIR" ]; then
      echo -e "${R} $LOG_DIR  Directory does not exist ${N}"
      exit 1
 fi
+
+Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +14)
+
+if [ -z "$Files_to_delete" ]; then
+    echo -e "${G} No old log files to delete ${N}"
+else
+    echo -e "${Y} Found the following old log files: ${N}"
+    echo "$Files_to_delete"
+    echo -e "${R} Deleting old log files... ${N}"
+#     rm $Files_to_delete
+#     echo -e "${G} Old log files deleted successfully ${N}"
+fi
