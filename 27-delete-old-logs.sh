@@ -12,18 +12,14 @@ LOG_FILE="$LOG_DIR/$SCRIPT_NAME.log"   ## Log file path
 
 if [  ! -d "$LOG_DIR" ]; then   # Check if the log directory exists
      echo -e "${R} $LOG_DIR  Directory does not exist ${N}"
-     exit 1
-     
+     exit 1    
 fi
-
-
 
 Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")   # Find log files older than the specified number of days
 
 if [ -z "$Files_to_delete" ]; then   # Check if any log files were found
-    echo -e "${G} No old log files to delete ${N}"
-    exit 1
-    
+    echo -e "${R} No old log files to delete ${N}"
+    exit 1    
 else 
     echo -e "${Y} Found the following log files::$Files_to_delete ${N} "
 fi 
