@@ -15,8 +15,16 @@ if [  ! -d "$LOG_DIR" ]; then
      exit 1
 fi
 
+
+
 Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")
 
+if [ -z "$Files_to_delete" ]; then
+    echo -e "${G} No old log files to delete ${N}"
+    exit 1
+else 
+    echo -e "${Y} Found the following log files::$Files_to_delete ${N} "
+fi 
 
 
 while IFS= read -r line; do
@@ -24,6 +32,23 @@ while IFS= read -r line; do
      rm -r "$line"
      echo -e "${G} Deleted file :: $line ${N}"
 done <<< "$Files_to_delete"
+
+
+
+
+# total 0
+# -rw-r--r--  1 ec2-user ec2-user   0 Oct  1 00:00 user.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Oct  1 00:00 shipping.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Oct  1 00:00 catalogue.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Oct  1 00:00 cart.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Nov  1 00:00 redis.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Nov  1 00:00 rabbitmq.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Nov  1 00:00 mysql.log
+# -rw-r--r--  1 ec2-user ec2-user   0 Nov  1 00:00 mongodb.log
+# drwxr-xr-x  2 ec2-user ec2-user 152 Nov  7 05:49 .
+# drwx------. 5 ec2-user ec2-user 134 Nov  7 07:23 ..
+
+
 
 
 # while IFS= read -r line; do
