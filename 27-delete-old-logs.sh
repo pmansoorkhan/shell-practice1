@@ -21,6 +21,8 @@ Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")
 
 while IFS= read -r line; do
     echo "Deleting file :: $line"
+     rm -r "$line"
+     echo -e "${G} Deleted file :: $line ${N}"
 done <<< "$Files_to_delete"
 
 
