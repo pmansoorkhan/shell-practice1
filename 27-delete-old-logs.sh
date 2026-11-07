@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 B="\e[34m"
-
+DAY=$1
 LOG_DIR="/home/ec2-user/app-logs"
 SCRIPT_NAME=$(basename "$0")
 LOG_FILE="$LOG_DIR/$SCRIPT_NAME.log"
@@ -15,7 +15,7 @@ if [  ! -d "$LOG_DIR" ]; then
      exit 1
 fi
 
-Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +14)
+Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")
 
 
 
