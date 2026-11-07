@@ -20,7 +20,7 @@ Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +14)
 
 while IFS= read -r line; do
     echo "$line"
-done <<< "26-colors.sh"
+done < "15-condition.sh"
 
 
 
