@@ -6,33 +6,37 @@ Y="\e[33m"
 N="\e[0m"
 B="\e[34m"
 DAY=$1
-LOG_DIR="/home/ec2-user/app-logs"
-SCRIPT_NAME=$(basename "$0")
-LOG_FILE="$LOG_DIR/$SCRIPT_NAME.log"
+LOG_DIR="/home/ec2-user/app-logs"     ## logs present in the directory
+SCRIPT_NAME=$(basename "$0")            ## Get the name of the script
+LOG_FILE="$LOG_DIR/$SCRIPT_NAME.log"   ## Log file path
 
-if [  ! -d "$LOG_DIR" ]; then
+if [  ! -d "$LOG_DIR" ]; then   # Check if the log directory exists
      echo -e "${R} $LOG_DIR  Directory does not exist ${N}"
      exit 1
-     echo  "$?"
+     
 fi
 
 
 
-Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")
+Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")   # Find log files older than the specified number of days
 
-if [ -z "$Files_to_delete" ]; then
+if [ -z "$Files_to_delete" ]; then   # Check if any log files were found
     echo -e "${G} No old log files to delete ${N}"
-    exit 2
-    echo  "$?"
+    exit 1
+    
 else 
     echo -e "${Y} Found the following log files::$Files_to_delete ${N} "
 fi 
 
 
-while IFS= read -r line; do
+while IFS= read -r line; do  # Loop through each file found and delete it
+     echo -e "${Y} Deleting file :: $line ${N}"
+     echo "Deleting file :: $line"
+     rm -r "$line"
+     echo -e "${G} Deleted file :: $line ${N}"   # Confirm deletion
     echo "Deleting file :: $line"
      rm -r "$line"
-     echo -e "${G} Deleted file :: $line ${N}"
+     echo -e "${G} Deleted file :: $line ${N}"  # deleted from the directory
 done <<< "$Files_to_delete"
 
 
