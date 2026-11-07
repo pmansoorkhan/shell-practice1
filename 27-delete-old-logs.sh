@@ -13,6 +13,7 @@ LOG_FILE="$LOG_DIR/$SCRIPT_NAME.log"
 if [  ! -d "$LOG_DIR" ]; then
      echo -e "${R} $LOG_DIR  Directory does not exist ${N}"
      exit 1
+     echo  "$?"
 fi
 
 
@@ -22,6 +23,7 @@ Files_to_delete=$(find "$LOG_DIR" -type f -name "*.log" -mtime +"$DAY")
 if [ -z "$Files_to_delete" ]; then
     echo -e "${G} No old log files to delete ${N}"
     exit 2
+    echo  "$?"
 else 
     echo -e "${Y} Found the following log files::$Files_to_delete ${N} "
 fi 
