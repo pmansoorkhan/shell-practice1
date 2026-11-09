@@ -65,7 +65,6 @@ else
     #log "Backup completed successfully. Backup file created at: $ZIP_FILE"
 fi
 
- log 
     # tar -czf "$DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" $Files
     # log "Backup completed successfully. Backup file created at: $DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" 
 
