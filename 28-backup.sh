@@ -61,9 +61,10 @@ else
     ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.tar.gz"
 
     echo -e "${G} Archieved files: $ZIP_FILE ${N}"
+ fi
     #tar -czf "$ZIP_FILE" $Files
     #log "Backup completed successfully. Backup file created at: $ZIP_FILE"
-fi
+
 
     # tar -czf "$DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" $Files
     # log "Backup completed successfully. Backup file created at: $DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" 
