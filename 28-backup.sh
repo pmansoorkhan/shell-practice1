@@ -19,10 +19,11 @@ if [ "$USER_ID" -ne 0 ]; then
     exit 1
 fi
 
-mkdir -p "$LOG_FOLDER"
+mkdir -p "$LOG_FOLDER" || exit 1
 
 USAGE(){
     echo -e "${R} Usage:: sudo  $0 <SOURCE_DIR> <DEST_DIR> <Number_of_days>[default::14 days] ${N}"
+    echo "Default: 14 days"
     exit 1
 }
 
@@ -71,7 +72,7 @@ else
          while IFS= read -r line; do
             echo "Deleting file :: $line"
             rm -- "$line"
-            echo -e "${G} Deleted file :: $line ${N}"
+            echo -e "${R} Deleted file :: $line ${N}"
         done <<< "$Files"
 
     else 
