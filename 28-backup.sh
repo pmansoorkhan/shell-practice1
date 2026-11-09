@@ -25,6 +25,10 @@ USAGE(){
     exit 1
 }
 
+log(){
+   echo -e "$(date + "%y-%m-%d %H:%M:%s") |  $1"  | tee -a $LOG_FILE
+}
+
 if [ "$#" -lt 2 ]; then
     USAGE
 fi
@@ -38,3 +42,11 @@ if [ ! -d "$DEST_DIR" ]; then
  echo -e "${R} Destination directory does not exist: $DEST_DIR ${N}"
  exit 1
 fi
+
+#find the files
+Files=$( find $SOURCE_DIR -name "*.log" -type f -mtime +$Number_of_days )
+
+log "Backup started for files older than $Number_of_days days from $SOURCE_DIR to $DEST_DIR"
+log "Source directory: $SOURCE_DIR"
+log "Destination directory: $DEST_DIR"
+log "Days: $Number_of_days"    
