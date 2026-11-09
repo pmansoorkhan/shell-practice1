@@ -13,13 +13,12 @@ B="\e[34m"
 SOURCE_DIR="$1"
 DEST_DIR="$2"
 Number_of_days="${3:-14}"
+mkdir -p "$LOG_FOLDER"
 
 if [ "$USER_ID" -ne 0 ]; then
     echo -e "${R} Please run the script as root user ${N}"
     exit 1
 fi
-
-mkdir -p "$LOG_FOLDER" 
 
 USAGE(){
     echo -e "${R} Usage:: sudo  $0 <SOURCE_DIR> <DEST_DIR> <Number_of_days>[default::14 days] ${N}"   | tee -a '$LOG_FILE'
