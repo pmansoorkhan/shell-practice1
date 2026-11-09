@@ -17,7 +17,7 @@ if [ "$USER_ID" -ne 0 ]; then
 fi
 
 USAGE(){
-    echo -e "${R} Usage:sudo $0 <source_dir> <destination_dir> <number_of_days>[default is 14] ${N}"
+    echo -e "${R} Usage:sudo <source_dir> <destination_dir> <number_of_days>[default is 14] ${N}"
     exit 1
 }
- echo  $USAGE
+ 
