@@ -45,7 +45,9 @@ if [ ! -d "$DEST_DIR" ]; then
 fi
 
 #find the files
-Files=$( find "$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days" )  | tee -a "$LOG_FILE"
+Files=$( find "$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days" )  
+echo "$Files" | tee -a "$LOG_FILE"
+
 
 log "Backup started for files older than $Number_of_days days"
 log "Source directory: $SOURCE_DIR"
@@ -61,8 +63,8 @@ else
     TIME_STAMP=$(date "+%F_%H-%M-%S")
     ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.tar.gz"
      echo -e "${G} Archieved files: $ZIP_FILE ${N}"
-    tar -zcvf "$ZIP_FILE" $Files
-    #find $SOURCE_DIR -name "*.log" -type f -mtime +$Number_of_days | tar -zcvf "$ZIP_FILE" 
+    #tar -zcvf "$ZIP_FILE" $Files
+    (find"$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days") | tar -zcvf "$ZIP_FILE" 
 
 
     if [ -f "$ZIP_FILE" ]; then 
