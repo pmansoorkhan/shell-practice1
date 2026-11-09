@@ -68,11 +68,11 @@ else
     if [ -f "$ZIP_FILE" ]; then 
         log "Archieval is......${G} Success ${N}" 
 
-        while IFS= read -r line; do
-        log "Deleting file :: $line"
-        rm --r "$Files \n"
-        log "${G} Deleted file :: Files ${N}"  
-        done <<< "$Files" 
+         while IFS= read -r line; do
+            echo "Deleting file :: $line"
+            rm -- "$line"
+            echo -e "${G} Deleted file :: $line ${N}"
+        done <<< "$Files"
 
     else 
         log "Archieval is..... ${R} Failure ${N}"
