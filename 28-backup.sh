@@ -18,7 +18,7 @@ fi
 mkdir -p "$LOG_FOLDER"
 
 USAGE(){
-    echo -e "${R} Usage:: sudo  $0 <source_dir> <dest_dir> <number_of_days>[default::14] ${N}"
+    echo -e "${R} Usage:: sudo  $0 <source_dir> <dest_dir> <number_of_days>[default::14 days] ${N}"
     exit 1
 }
 
