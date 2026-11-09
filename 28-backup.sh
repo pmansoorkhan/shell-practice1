@@ -49,4 +49,4 @@ Files=$( find $SOURCE_DIR -name "*.log" -type f -mtime +$Number_of_days )
 log "Backup started for files older than $Number_of_days days"
 log "Source directory: $SOURCE_DIR"
 log "Destination directory: $DEST_DIR"
-log "Days: $Number_of_days"    
+log "Days: $Number_of_days days"    
