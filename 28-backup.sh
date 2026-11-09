@@ -19,7 +19,7 @@ if [ "$USER_ID" -ne 0 ]; then
     exit 1
 fi
 
-mkdir -p "$LOG_FOLDER" || exit 1
+mkdir -p "$LOG_FOLDER" 
 
 USAGE(){
     echo -e "${R} Usage:: sudo  $0 <SOURCE_DIR> <DEST_DIR> <Number_of_days>[default::14 days] ${N}"
@@ -80,3 +80,7 @@ else
         exit 1
     fi 
 fi
+
+
+#command to unzip tar files in project from DesT
+#tar -xzvf app-logs-2026-11-09_13-15-18.tar.gz
