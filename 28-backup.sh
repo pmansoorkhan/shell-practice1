@@ -52,7 +52,23 @@ log "Destination directory: $DEST_DIR"
 log "Days: $Number_of_days days"    
 
 if [ -z "$Files" ]; then 
-log "${B}No files to acrhive in $SOURCE_DIR ${N}....${Y} Skipping backup process ${N}"
- fi
+    log "${B}No files to acrhive in $SOURCE_DIR ${N}....${Y} Skipping backup process ${N}"
+
+else
+  # app-logs-$timestamp.tar.gz
+    log "Files found to be archived: $Files"
+    TIME_STAMP=$(date "+%F_%H-%M-%S")
+    ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.tar.gz"
+
+    echo -e "${G} Archieved files: $ZIP_FILE ${N}"
+    #tar -czf "$ZIP_FILE" $Files
+    #log "Backup completed successfully. Backup file created at: $ZIP_FILE"
+fi
+
+ log 
+    # tar -czf "$DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" $Files
+    # log "Backup completed successfully. Backup file created at: $DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" 
+
+ 
  
 
