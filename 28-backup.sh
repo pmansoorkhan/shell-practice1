@@ -27,7 +27,7 @@ USAGE(){
 }
 
 log(){
-   echo -e "$(date "+%y-%m-%d %H:%M:%S") | ${B} $1 ${N}" | tee -a $LOG_FILE
+   echo -e "$(date "+%y-%m-%d %H:%M:%S") | ${B} $1 ${N}" | tee -a '$LOG_FILE'
 }
 
 if [ "$#" -lt 2 ]; then
@@ -70,7 +70,7 @@ else
 
         while IFS= read -r line; do
         log "Deleting file :: $line"
-        rm -r "$Files"
+        rm --r "$Files"
         log "${G} Deleted file :: Files ${N}"  
         done <<< "$Files" 
 
