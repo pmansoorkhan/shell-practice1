@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USER_ID=$(id -u)
-LOG_FOLDER="/var/log/shell-script1"
+LOG_FOLDER="/var/log/shell-practice1"
 SCRIPT_NAME=$(basename "$0")
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME.log"
 
@@ -12,12 +12,19 @@ N="\e[0m"
 B="\e[34m"
 
 if [ "$USER_ID" -ne 0 ]; then
-    echo -e "${R}Please run the script as root user${N}"
-    exit 1
+    echo -e "${R} Please run the script as root user ${N}"
 fi
+
 mkdir -p "$LOG_FOLDER"
 
 USAGE(){
-    echo -e "${R} Usage:sudo <source_dir> <destination_dir> <number_of_days>[default is 14] ${N}"
+    echo -e "${R} Usage:: sudo backup <source_dir> <dest_dir> <number_of_days>[default is 14] ${N}"
     exit 1
 }
+
+if [ "$#" -lt 2 ]; then
+    USAGE
+fi
+
+
+
