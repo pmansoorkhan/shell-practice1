@@ -59,9 +59,29 @@ else
     log "Files found to be archived: $Files"
     TIME_STAMP=$(date "+%F_%H-%M-%S")
     ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.tar.gz"
+     echo -e "${G} Archieved files: $ZIP_FILE ${N}"
+    tar -zcvf "$ZIP_FILE" $Files
+    #find $SOURCE_DIR -name "*.log" -type f -mtime +$Number_of_days | tar -zcvf "$ZIP_FILE" 
 
-    echo -e "${G} Archieved files: $ZIP_FILE ${N}"
- fi
+
+    if [ -f "$ZIP_FILE" ]; then 
+        log "Archieval is......${G} Success ${N}" 
+
+        while IFS= read -r line; do
+        echo "Deleting file :: $line"
+        rm -r "$Files"
+        echo -e "${G} Deleted file :: $Files ${N}"  
+        done <<< "$Files" 
+
+    else 
+        log "Archieval is..... ${R} Failure ${N}"
+        exit 1
+    fi 
+fi
+
+  
+
+  
     #tar -czf "$ZIP_FILE" $Files
     #log "Backup completed successfully. Backup file created at: $ZIP_FILE"
 
