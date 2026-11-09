@@ -15,9 +15,9 @@ if [ "$USER_ID" -ne 0 ]; then
     echo -e "${R}Please run the script as root user${N}"
     exit 1
 fi
+mkdir -p "$LOG_FOLDER"
 
 USAGE(){
     echo -e "${R} Usage:sudo <source_dir> <destination_dir> <number_of_days>[default is 14] ${N}"
     exit 1
 }
- 
