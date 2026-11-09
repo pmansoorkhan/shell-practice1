@@ -26,7 +26,7 @@ USAGE(){
 }
 
 log(){
-   echo -e "$(date "+%y-%m-%d %H:%M:%S") |  $1"  | tee -a $LOG_FILE
+   echo -e "$(date "+%y-%m-%d %H:%M:%S") | $1"  | tee -a $LOG_FILE
 }
 
 if [ "$#" -lt 2 ]; then
@@ -52,7 +52,7 @@ log "Destination directory: $DEST_DIR"
 log "Days: $Number_of_days days"    
 
 if [ -z $Files ]; then 
-log "${B} No files to acrhive in $SOURCE_DIR ${N} ....${Y} Skipping backup process ${N}"
+log "${B}No files to acrhive in $SOURCE_DIR ${N} ....${Y} Skipping backup process ${N}"
  fi
  
 
