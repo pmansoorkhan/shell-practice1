@@ -70,7 +70,7 @@ else
 
         while IFS= read -r line; do
         log "Deleting file :: $line"
-        rm --r "$Files"
+        rm --r "$Files \n"
         log "${G} Deleted file :: Files ${N}"  
         done <<< "$Files" 
 
