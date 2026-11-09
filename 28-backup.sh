@@ -70,7 +70,7 @@ else
         while IFS= read -r line; do
         echo "Deleting file :: $line"
         rm -r "$Files"
-        echo -e "${G} Deleted file :: $Files ${N}"  
+        echo -e "${G} Deleted file :: Files ${N}"  
         done <<< "$Files" 
 
     else 
