@@ -21,13 +21,13 @@ if [ "$USER_ID" -ne 0 ]; then
 fi
 
 USAGE(){
-    echo -e "${R} Usage:: sudo  $0 <SOURCE_DIR> <DEST_DIR> <Number_of_days>[default::14 days] ${N}"   | tee -a '$LOG_FILE'
+    echo -e "${R} Usage:: sudo  $0 <SOURCE_DIR> <DEST_DIR> <Number_of_days>[default::14 days] ${N}"   | tee -a "$LOG_FILE"
     echo "Default: 14 days"
     exit 1
 }
 
 log(){
-   echo -e "$(date "+%y-%m-%d %H:%M:%S") | ${B} $1 ${N}" | tee -a '$LOG_FILE'
+   echo -e "$(date "+%y-%m-%d %H:%M:%S") | ${B} $1 ${N}" | tee -a "$LOG_FILE"
 }
 
 if [ "$#" -lt 2 ]; then
@@ -35,17 +35,17 @@ if [ "$#" -lt 2 ]; then
 fi
 
 if [ ! -d "$SOURCE_DIR" ]; then
- echo -e "${R} Source directory does not exist: "$SOURCE_DIR" ${N}" | tee -a '$LOG_FILE'
+ echo -e "${R} Source directory does not exist: "$SOURCE_DIR" ${N}" | tee -a "$LOG_FILE"
  exit 1
 fi
 
 if [ ! -d "$DEST_DIR" ]; then
- echo -e "${R} Destination directory does not exist: "$DEST_DIR" ${N}"  | tee -a '$LOG_FILE'
+ echo -e "${R} Destination directory does not exist: "$DEST_DIR" ${N}"  | tee -a "$LOG_FILE"
  exit 1
 fi
 
 #find the files
-Files=$( find "$SOURCE_DIR" -name "*.log" -type f -mtime +$Number_of_days )  | tee -a '$LOG_FILE'
+Files=$( find "$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days" )  | tee -a "$LOG_FILE"
 
 log "Backup started for files older than $Number_of_days days"
 log "Source directory: $SOURCE_DIR"
@@ -53,7 +53,7 @@ log "Destination directory: $DEST_DIR"
 log "Days:$Number_of_days days"    
 
 if [ -z "$Files" ]; then 
-    log "${B}No files to acrhive in "$SOURCE_DIR" ${N}....${Y} Skipping backup process ${N}" | tee -a '$LOG_FILE'
+    log "${B}No files to acrhive in "$SOURCE_DIR" ${N}....${Y} Skipping backup process ${N}" | tee -a "$LOG_FILE"
 
 else
   # app-logs-$timestamp.tar.gz
@@ -66,8 +66,7 @@ else
 
 
     if [ -f "$ZIP_FILE" ]; then 
-        log "Archieval is......${G} Success ${N}"  | tee -a '$LOG_FILE'
-
+        log "Archieval is......${G} Success ${N}"  | tee -a "$LOG_FILE"
          while IFS= read -r line; do
             echo "Deleting file :: $line"
             rm -- "$line"
@@ -75,7 +74,7 @@ else
         done <<< "$Files"
 
     else 
-        log "Archieval is..... ${R} Failure ${N}"  | tee -a '$LOG_FILE'
+        log "Archieval is..... ${R} Failure ${N}"  | tee -a "$LOG_FILE"
         exit 1
     fi 
 fi
