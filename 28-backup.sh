@@ -12,7 +12,7 @@ N="\e[0m"
 B="\e[34m"
 SOURCE_DIR="$1"
 DEST_DIR="$2"
-Number_of_days="${3:-14}"
+Number_of_days="${10:-14}"
 
 if [ "$USER_ID" -ne 0 ]; then
     echo -e "${R} Please run the script as root user ${N}"
