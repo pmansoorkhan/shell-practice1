@@ -16,6 +16,7 @@ Number_of_days="${3:-14}"
 
 if [ "$USER_ID" -ne 0 ]; then
     echo -e "${R} Please run the script as root user ${N}"
+    exit 1
 fi
 
 mkdir -p "$LOG_FOLDER"
@@ -34,25 +35,25 @@ if [ "$#" -lt 2 ]; then
 fi
 
 if [ ! -d "$SOURCE_DIR" ]; then
- echo -e "${R} Source directory does not exist: $SOURCE_DIR ${N}"
+ echo -e "${R} Source directory does not exist: "$SOURCE_DIR" ${N}"
  exit 1
 fi
 
 if [ ! -d "$DEST_DIR" ]; then
- echo -e "${R} Destination directory does not exist: $DEST_DIR ${N}"
+ echo -e "${R} Destination directory does not exist: "$DEST_DIR" ${N}"
  exit 1
 fi
 
 #find the files
-Files=$( find $SOURCE_DIR -name "*.log" -type f -mtime +$Number_of_days )
+Files=$( find "$SOURCE_DIR" -name "*.log" -type f -mtime +$Number_of_days )
 
 log "Backup started for files older than $Number_of_days days"
-log "Source directory: $SOURCE_DIR"
-log "Destination directory: $DEST_DIR"
-log "Days: $Number_of_days days"    
+log "Source directory: '$SOURCE_DIR'"
+log "Destination directory: '$DEST_DIR'"
+log "Days: '$Number_of_days' days"    
 
 if [ -z "$Files" ]; then 
-    log "${B}No files to acrhive in $SOURCE_DIR ${N}....${Y} Skipping backup process ${N}"
+    log "${B}No files to acrhive in "$SOURCE_DIR" ${N}....${Y} Skipping backup process ${N}"
 
 else
   # app-logs-$timestamp.tar.gz
@@ -68,9 +69,9 @@ else
         log "Archieval is......${G} Success ${N}" 
 
         while IFS= read -r line; do
-        echo "Deleting file :: $line"
+        log "Deleting file :: $line"
         rm -r "$Files"
-        echo -e "${G} Deleted file :: Files ${N}"  
+        log "${G} Deleted file :: Files ${N}"  
         done <<< "$Files" 
 
     else 
@@ -78,17 +79,3 @@ else
         exit 1
     fi 
 fi
-
-  
-
-  
-    #tar -czf "$ZIP_FILE" $Files
-    #log "Backup completed successfully. Backup file created at: $ZIP_FILE"
-
-
-    # tar -czf "$DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" $Files
-    # log "Backup completed successfully. Backup file created at: $DEST_DIR/backup_$(date "+%F %H:%M:%S").tar.gz" 
-
- 
- 
-
