@@ -63,8 +63,10 @@ else
     TIME_STAMP=$(date "+%F_%H-%M-%S")
     ZIP_FILE="$DEST_DIR/app-logs-$TIME_STAMP.tar.gz"
      echo -e "${G} Archieved files: $ZIP_FILE ${N}"
+    find "$SOURCE_DIR" -type f -name "*.log" -mtime +"$Number_of_days" -print0 | tar --null -czvf "$ZIP_FILE_NAME" --files-from=-
+
     #tar -zcvf "$ZIP_FILE" $Files
-    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +"$Number_of_days")
+    #tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +"$Number_of_days")
     #(find "$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days") | tar -zcvf "$ZIP_FILE"  -T -
 
 
