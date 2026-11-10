@@ -68,7 +68,7 @@ else
     #(find "$SOURCE_DIR" -name "*.log" -type f -mtime "+$Number_of_days") | tar -zcvf "$ZIP_FILE"  -T -
 
 
-    if [-f $ZIP_FILE ]; then 
+    if [ -f "$ZIP_FILE" ]; then 
         log "Archieval is......${G} Success ${N}"  | tee -a "$LOG_FILE"
          while IFS= read -r line; do
             echo "Deleting file :: $line"
