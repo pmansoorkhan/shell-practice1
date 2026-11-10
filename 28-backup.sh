@@ -80,3 +80,6 @@ else
         exit 1
     fi 
 fi
+
+#Tocheck the gip files, use below comand 
+#tar -zxvf app-logs-2026-11-10_06-13-46.tar.gz
