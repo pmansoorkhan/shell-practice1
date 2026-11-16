@@ -2,8 +2,7 @@
 LOG_FILE="/var/log/disk_usage.log"
 THRESHOLD=30
 
-df -P | awk 'NR > 1 {print $5,$6}'| 
-while read usage mount
+df -P | awk 'NR > 1 {print $5}'| while read usage mount
 do
     usage="${usage%\%}"
     if ["$usage" -le "$THRESHOLD"]; then 
