@@ -5,7 +5,7 @@ THRESHOLD=30
 df -P | grep -v Filesystem |awk 'NR > 1 {print $5,$6}'| while read usage mount
 do
     usage="${usage%\%}"
-    if [ "$usage" -le "$THRESHOLD"]
+    if [ "$usage" -le "$THRESHOLD"]; then 
         echo "$(date +%F): Warning - $mount usage is ${usage}%" &>> "$LOG_FILE"
     fi 
 done 
