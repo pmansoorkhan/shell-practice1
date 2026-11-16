@@ -6,7 +6,7 @@ df -P | awk 'NR > 1 {gsub(/%/, "", $5); print $5, $6}' | while read  -r usage mo
 do
     usage="${usage%\%}"
     if [ "$usage" -ge "$THRESHOLD" ]; then 
-        echo "$(date +%F): Warning - $mount usage is ${usage}%" &>> "$LOG_FILE"
+    echo  -e "$(date +%F): Warning - $mount usage is ${usage}%" | tee -a "$LOG_FILE"
     fi 
 done 
 
