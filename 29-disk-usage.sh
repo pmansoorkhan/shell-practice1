@@ -23,7 +23,7 @@ B="\e[34m"
 N="\e[0m"
 MESSAGE=""
 
-if [ "$USER_ID -ne 0 "]; then
+if [ "$USER_ID" -ne 0  ]; then
     echo -e "${R} Please run the script as root user ${N}"
     exit 1
 fi
