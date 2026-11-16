@@ -38,10 +38,9 @@ while IFS= read -r line
     if [ "$USAGE" -gt "$THRESHOLD" ]; then
     MESSAGE+="High disk usage on :: $PARTITION:$USAGE"  &>> '$LOG_FILE'  #high disk usage on :: /var 10
     fi
+done <<< "$DISK_USAGE"
 
-done <<< $DISK_USAGE
-
-echo "$MESSAGE"
+echo -e "${Y} $MESSAGE ${N} "
 
 
 #df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
