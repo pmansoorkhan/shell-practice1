@@ -31,7 +31,8 @@ fi
 DISK_USAGE=$(df -h | grep -v Filesystem)  | tee -a '$LOG_FILE'
 THRESHOLD=3
 
-while IFS= read -r line
+while IFS= read -r line 
+do
     USAGE=$(echo '$line' | awk '{print $6}'| cut -d "%" -f1)  | tee -a '$LOG_FILE'
     PARTITION=$(echo '$line' | awk '{print $7}') | tee -a '$LOG_FILE'
 
