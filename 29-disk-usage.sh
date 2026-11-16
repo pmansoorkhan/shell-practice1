@@ -1,10 +1,49 @@
+# #!/bin/bash
+# LOG_FILE="/var/log/disk_usage.log"
+# THRESHOLD=5
+# df -P | awk 'NR > 1 {gsub(/%/, "", $5); print $5, $6}'| while read  -r usage mount
+# do
+#     usage="${usage%\%}"
+#     if [ "$usage" -ge "$THRESHOLD" ]; then 
+#     echo -e  "$(date '+%y-%m-%d %H:%M:%S'): Warning - '$mount' utilization is ${usage}%" | tee -a "$LOG_FILE"
+#     fi 
+# done
+
+
+
+
 #!/bin/bash
-LOG_FILE="/var/log/disk_usage.log"
-THRESHOLD=5
-df -P | awk 'NR > 1 {gsub(/%/, "", $5); print $5, $6}'| while read  -r usage mount
-do
-    usage="${usage%\%}"
-    if [ "$usage" -ge "$THRESHOLD" ]; then 
-    echo -e  "$(date '+%y-%m-%d %H:%M:%S'): Warning - '$mount' utilization is ${usage}%" | tee -a "$LOG_FILE"
-    fi 
-done
+
+LOG_FILE="/var/log/disk.log"
+USER_ID="$(id -u)"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+B="\e[34m"
+N="\e[0m"
+MESSAGE=""
+
+if [ "$USER_ID -ne 0 "]; then
+    echo -e "${R} Please run the script as root user ${N}"
+    exit 1
+fi
+
+DISK_USAGE=$(df -h | grep -v Filesystem)  | tee -a '$LOG_FILE'
+THRESHOLD=3
+
+while IFS = read -r line 
+do 
+    USAGE=$(df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1)  | tee -a '$LOG_FILE'
+    PARTITION=$(df -hT | grep -v Filesystem | awk '{print $7}') | tee -a '$LOG_FILE'
+
+    if [ "$USAGE" -gt "$THRESHOLD" ]; then
+    MESSAGE+="High disk usage on :: $PARTITION:$USAGE"  &>> '$LOG_FILE'  #high disk usage on :: /var 10
+    fi
+
+done <<< $DISK_USAGE
+
+echo "$MESSAGE"
+
+
+#df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
+#df -hT | grep -v Filesystem | awk '{print $7}' ---> coomand to get the directory of the filesystem
