@@ -29,7 +29,7 @@ if [ "$USER_ID" -ne 0  ]; then
 fi
 
 DISK_USAGE=$(df -hT | grep -v Filesystem)  | tee -a "$LOG_FILE"
-THRESHOLD=3
+THRESHOLD=10
 
 while IFS= read -r line 
 do
