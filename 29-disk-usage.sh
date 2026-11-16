@@ -33,7 +33,7 @@ THRESHOLD=3
 
 while IFS= read -r line 
 do
-    USAGE=$(echo '$line' | awk '{print $6}'| cut -d "%" -f1)  | tee -a '$LOG_FILE'
+    USAGE="$(echo '$line' | awk '{print $6}'| cut -d "%" -f1)"   | tee -a '$LOG_FILE'
     PARTITION=$(echo '$line' | awk '{print $7}') | tee -a '$LOG_FILE'
 
     if [ "$USAGE" -gt "$THRESHOLD" ]; then
