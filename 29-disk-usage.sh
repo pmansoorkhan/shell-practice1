@@ -28,6 +28,7 @@ if [ "$USER_ID" -ne 0  ]; then
 fi
 
 SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
+SERVER_NAME=$(curl http://169.254.169.254/latest/meta-data/hostname)
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
 THRESHOLD=3
 
@@ -45,7 +46,7 @@ do
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
-    echo -e " ServerIP ::"$SERVER_IP""
+    echo -e "  Name & ServerIP :: "SERVER_NAME"  "$SERVER_IP""
 
 
  sh mail.sh  "pmansoorkhan04@gmail.com" "High Disk Usage alert on $SERVER_IP" "$MESSAGE" "HIGH DISK_USAGE" "$SERVER_IP" "DevOps Team"
