@@ -27,7 +27,7 @@ if [ "$USER_ID" -ne 0  ]; then
     exit 1
 fi
 
-SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
+SERVER_IP=curl http://169.254.169.254/latest/meta-data/public-ipv4
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
 THRESHOLD=3
 
