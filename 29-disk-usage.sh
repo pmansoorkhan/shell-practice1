@@ -40,8 +40,8 @@ do
     echo "$PARTITION" &>> "$LOG_FILE"
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
-        #MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N} \n"  ##--> this is used in shell to print line by line        
-        MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S') Disk usage on $PARTITION:$USAGE%  <br>" ##---> this command is used in HTML to print line by line
+        MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N} \n"  ##--> this is used in shell to print line by line        
+        #MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S') Disk usage on $PARTITION:$USAGE%  <br>" ##---> this command is used in HTML to print line by line
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
