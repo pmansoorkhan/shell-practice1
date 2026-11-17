@@ -47,7 +47,7 @@ done <<< "$DISK_USAGE"
     echo -e " Server IP ::$SERVER_IP"
 
 
-sh mail.sh  
+sh mail.sh "pmansoorkhan92@gmail.com" , "DISK_UTILIZE" , "$MESSAGE"
 
 #df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
 #df -hT | grep -v Filesystem | awk '{print $7}' ---> coomand to get the directory of the filesystem
