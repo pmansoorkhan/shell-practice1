@@ -26,7 +26,7 @@ if [ "$USER_ID" -ne 0  ]; then
     echo -e "${R} Please run the script as root user ${N}"
     exit 1
 fi
-
+SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
 THRESHOLD=3
 
@@ -43,7 +43,9 @@ do
     fi
 done <<< "$DISK_USAGE"
 
-  echo -e "$MESSAGE"
+    echo -e "$SERVER_IP"
+    echo -e "$MESSAGE"
+
 
 
 #df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
