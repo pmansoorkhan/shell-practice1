@@ -41,7 +41,7 @@ do
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
         #MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N} <br>"  #high disk usage on :: /var 10       
-        MESSAGE+=" High disk usage on $PARTITION: $USAGE%  <br>"
+        MESSAGE+="Disk usage on $PARTITION:$USAGE%  <br>"
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
