@@ -37,7 +37,7 @@ do
     echo "$USAGE" | &>> "$LOG_FILE"
 
     PARTITION=$(echo "$line" | awk '{print $7}') 
-    echo "$PARTITION" &>> "$LOG_FILE"
+    #echo "$PARTITION" &>> "$LOG_FILE"
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
         MESSAGE+="${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  &>> "$LOG_FILE"   #high disk usage on :: /var 10
