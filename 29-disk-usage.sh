@@ -27,7 +27,7 @@ if [ "$USER_ID" -ne 0  ]; then
     exit 1
 fi
 
-SERVER-IP="$(curl http://169.254.169.254/latest/meta-data/local-ipv4)"
+SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
 THRESHOLD=3
 
@@ -44,10 +44,10 @@ do
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
-    echo -e " ServerIP ::"$SERVER-IP""
+    echo -e " ServerIP ::"$SERVER_IP""
 
 # sh mail.sh "pmansoorkhan04@gmail.com"  "High Disk Usage alert on $SERVER_IP"  "$FINAL_MESSAGE_BODY" "HIGH DISK_USAGE"  "$SERVER_IP" "DevOps Team"
- sh mail.sh  "pmansoorkhan04@gmail.com" "High Disk Usage alert on $SERVER-IP" "$FINAL_MESSAGE_BODY" "HIGH DISK_USAGE" "$SERVER-IP" "DevOps Team"
+ sh mail.sh  "pmansoorkhan04@gmail.com" "High Disk Usage alert on $SERVER_IP" "$FINAL_MESSAGE_BODY" "HIGH DISK_USAGE" "$SERVER_IP" "DevOps Team"
  
 #df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
 #df -hT | grep -v Filesystem | awk '{print $7}' ---> coomand to get the directory of the filesystem
