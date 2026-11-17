@@ -40,10 +40,7 @@ do
     echo "$PARTITION" &>> "$LOG_FILE"
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
-       # MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N} <br>"  #high disk usage on :: /var 10      
-        MESSAGE+="${B} High disk usage on ${N} ${MOUNT}:${R}${USAGE}% ${N}"
-        echo -e "$MESSAGE"
-        echo -e "$MESSAGE" | sed -E 's/\x1B\[[0-9;]*[mK]//g' >> "$LOG_FILE"
+        MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N} <br>"  #high disk usage on :: /var 10       
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
