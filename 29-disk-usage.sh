@@ -44,7 +44,7 @@ do
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
-    echo -e "$SERVER_IP"
+    echo -e " Server IP :: $SERVER_IP"
 
 
 
