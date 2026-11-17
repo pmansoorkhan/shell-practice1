@@ -4,7 +4,7 @@ echo "To:pmansoorkhan04@gmail.com"
 echo "Subject: DISK_UTILIZATION"
 echo "Content-Type: text/html"
 echo ""
-echo "MESSAGE"
+echo "$MESSAGE"
 } | msmtp "pmansoorkhan04@gmail.com"
 
 
