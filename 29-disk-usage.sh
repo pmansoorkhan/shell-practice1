@@ -43,7 +43,7 @@ do
     fi
 done <<< "$DISK_USAGE"
 
-  echo -e " ${Y} $MESSAGE ${N} "
+  echo -e "$MESSAGE"
 
 
 #df -hT | grep -v Filesystem | awk '{print $6}'| cut -d "%" -f1 ----> coomand to get disk utilization in number
