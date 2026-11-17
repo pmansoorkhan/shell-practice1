@@ -1,11 +1,11 @@
 #!/bin/bash
 {
-echo "To: $pmansoorkhan04@gmail.com"
+echo "To:pmansoorkhan04@gmail.com"
 echo "Subject: DISK_UTILIZATION"
 echo "Content-Type: text/html"
 echo ""
-echo "$MESSAGE"
-} | msmtp "$pmansoorkhan04@gmail.com"
+echo "MESSAGE"
+} | msmtp "pmansoorkhan04@gmail.com"
 
 
 
