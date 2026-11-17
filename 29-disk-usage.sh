@@ -13,7 +13,6 @@
 
 
 #!/bin/bash
-
 LOG_FILE="/var/log/disk.log"
 USER_ID="$(id -u)"
 R="\e[31m"
@@ -34,7 +33,7 @@ THRESHOLD=3
 while IFS= read -r line 
 do
     USAGE=$(echo "$line" | awk '{print $6}'| cut -d "%" -f1) 
-    echo "$USAGE" | &>> "$LOG_FILE"
+    #echo "$USAGE" | &>> "$LOG_FILE"
 
     PARTITION=$(echo "$line" | awk '{print $7}') 
     #echo "$PARTITION" &>> "$LOG_FILE"
