@@ -29,7 +29,7 @@ if [ "$USER_ID" -ne 0  ]; then
 fi
 
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
-THRESHOLD=10
+THRESHOLD=3
 
 while IFS= read -r line 
 do
@@ -37,7 +37,7 @@ do
     PARTITION=$(echo "$line" | awk '{print $7}') 
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
-        MESSAGE+="High disk usage on $PARTITION:$USAGE% \n"   #high disk usage on :: /var 10
+        MESSAGE+="${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"   #high disk usage on :: /var 10
     fi
 done <<< "$DISK_USAGE"
 
