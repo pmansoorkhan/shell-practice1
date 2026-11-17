@@ -43,9 +43,8 @@ do
         MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  &>> "$LOG_FILE"   #high disk usage on :: /var 10      
     fi
 done <<< "$DISK_USAGE"
-
-    echo -e "$SERVER_IP"
     echo -e "$MESSAGE"
+    echo -e "$SERVER_IP"
 
 
 
