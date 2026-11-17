@@ -40,6 +40,9 @@ do
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
         MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  &>> "$LOG_FILE"   #high disk usage on :: /var 10
+    else
+        MESSAGE="$(date '+%y-%m-%d %H:%M:%S'):: ${Y} disk usage is normal on ${N} $PARTITION:${R}$USAGE% ${N}\n"
+    
     fi
 done <<< "$DISK_USAGE"
 
