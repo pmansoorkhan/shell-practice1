@@ -40,7 +40,7 @@ do
     echo "$PARTITION" &>> "$LOG_FILE"
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
-        MESSAGE+="${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"   #high disk usage on :: /var 10
+        MESSAGE+="${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  &>> "$LOG_FILE"   #high disk usage on :: /var 10
     fi
 done <<< "$DISK_USAGE"
 
