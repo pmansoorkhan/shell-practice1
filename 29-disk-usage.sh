@@ -21,13 +21,13 @@ Y="\e[33m"
 B="\e[34m"
 N="\e[0m"
 MESSAGE=""
-SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 
 if [ "$USER_ID" -ne 0  ]; then
     echo -e "${R} Please run the script as root user ${N}"
     exit 1
 fi
 
+SERVER_IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)
 DISK_USAGE=$(df -hT | grep -v Filesystem)  
 THRESHOLD=3
 
@@ -40,11 +40,11 @@ do
     #echo "$PARTITION" &>> "$LOG_FILE"
 
     if [ "$USAGE" -ge "$THRESHOLD" ] ; then
-        MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  &>> "$LOG_FILE"   #high disk usage on :: /var 10      
+        MESSAGE+=" $(date '+%y-%m-%d %H:%M:%S'):: ${B} High disk usage on ${N} $PARTITION:${R}$USAGE% ${N}\n"  #high disk usage on :: /var 10      
     fi
 done <<< "$DISK_USAGE"
     echo -e "$MESSAGE"
-    echo -e " Server IP :: $SERVER_IP"
+    echo -e " Server IP ::$SERVER_IP"
 
 
 
