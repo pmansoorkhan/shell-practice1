@@ -5,7 +5,7 @@ MESSAGE_BODY=$3
 ALERT_TYPE=$4
 SERVER_IP=$5
 TO_TEAM=$6
-NAME=$7
+Name=$7
 
 FINAL_MESSAGE_BODY=$(echo $MESSAGE_Body | sed -e "s/'/'\\\\''/g")
 
