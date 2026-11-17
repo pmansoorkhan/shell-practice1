@@ -9,7 +9,13 @@ TO_TEAM=$6
 
 FINAL_MESSAGE_BODY=$(echo $MESSAGE_Body | sed -e "s/'/'\\\\''/g")
 
-FINAL_MESSAGE="$( sed -e "s/TO_TEAM/$6/g" -e "s/ALERT/$4/g" -e "s/SERVER-IP/$5/g"  "s/MESSAGE/$3/g"  template.html)"
+#FINAL_MESSAGE="$( sed -e "s/TO_TEAM/$6/g" -e "s/ALERT/$4/g" -e "s/SERVER-IP/$5/g"  "s/MESSAGE/$3/g"  template.html)"
+FINAL_MESSAGE=$(sed \
+    -e "s|TO_TEAM|$TO_TEAM|g" \
+    -e "s|ALERT|$ALERT_TYPE|g" \
+    -e "s|SERVER-IP|$SERVER_IP|g" \
+    -e "s|MESSAGE|$MESSAGE_BODY|g" \
+    template.html)
 
 {
 echo "To: $TO_ADDRESS"
