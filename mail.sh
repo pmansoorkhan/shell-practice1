@@ -16,7 +16,7 @@ echo "To: $TO_ADDRESS"
 echo "Subject: $SUBJECT"
 echo "Content-Type: text/html"
 echo ""
-echo "$FINAL_MESSAGE_BODY"
+echo "$FINAL_MESSAGE"
 } | msmtp "$TO_ADDRESS"
 
 
