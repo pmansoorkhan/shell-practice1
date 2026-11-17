@@ -1,23 +1,17 @@
 #!/bin/bash
+TO_ADDRESS=$1  
+SUBJECT=$2
+MESSAGE_BODY=$3
+ALERT_TYPE=$4
+SERVER_IP=$5
+TO_TEAM=$6
 
-
-# {
-# echo "To:pmansoorkhan04@gmail.com"
-# echo "Subject: DISK_UTILIZATION"
-# echo "Content-Type: text/html"
-# echo ""
-# echo "$MESSAGE"
-# } | msmtp "pmansoorkhan04@gmail.com"
-
-
-TO_ADDRESS=pmansoorkhan04@gmail.com   
-SUBJECT=DISK_UTILIZATION
-EMAIL_BODY="$MESSAGE"
+FINAL_MESSAGE=$(sed -e "s/TO_TEAM/$6/g" -e "s/ALERT_TYPE/$4/g" -e "s/SERVERIP/$5/g" -e "s/MESSAGE/$3/g" template.html )
 
 {
 echo "To: $TO_ADDRESS"
 echo "Subject: $SUBJECT"
 echo "Content-Type: text/html"
 echo ""
-echo "$EMAIL_BODY"
+echo "$FINAL_MESSAGE"
 } | msmtp "$TO_ADDRESS"
